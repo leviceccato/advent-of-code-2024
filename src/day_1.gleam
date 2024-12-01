@@ -76,13 +76,13 @@ pub fn main() {
 
   let similarity_score =
     list_1
-    |> list.fold(0, fn(maybe_score, id) {
+    |> list.fold(0, fn(score, id) {
       let count =
         id_counts
         |> dict.get(id)
         |> result.unwrap(0)
 
-      maybe_score + id * count
+      score + id * count
     })
 
   io.debug(similarity_score)
